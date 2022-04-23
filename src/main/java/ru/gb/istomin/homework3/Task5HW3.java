@@ -1,7 +1,6 @@
 package ru.gb.istomin.homework3;
 
 import java.util.Arrays;
-
 //Написать метод, принимающий на вход два аргумента: len и initialValue,
 // и возвращающий одномерный массив типа int длиной len, каждая ячейка которого равна initialValue
 public class Task5HW3 {
