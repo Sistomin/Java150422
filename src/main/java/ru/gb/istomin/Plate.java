@@ -15,7 +15,7 @@ public class Plate {//класс тарелка
         this.food = food;
     }
 
-    public void decreaseFood(int n, Cat[] hungryCats) { //пункт 4 ДЗ, кот уменьшает кол-во еды в тарелке
+    public void decreaseFood(int n) { //пункт 4 ДЗ, кот уменьшает кол-во еды в тарелке
         food -= n;
     }
 
@@ -24,7 +24,12 @@ public class Plate {//класс тарелка
     }
 
     public void addFood(int action) {//5. Добавить в тарелку метод, с помощью которого можно было бы добавлять еду в тарелку
-        food = food + action;
+        if (action >= 0) {
+            food = food + action;//добавляем корм в миску
+        }
+        else {//не даем вычесть еду из миски
+            System.out.println("Вы не можете заберать еду из миски");
+        }
     }
 }
 

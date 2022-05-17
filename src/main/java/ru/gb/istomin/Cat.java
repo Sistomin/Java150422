@@ -18,8 +18,8 @@ public class Cat {  //класс кот
         return appetite;
     }
 
-    public void eat(Plate p, Cat[] hungryCats) {//пункт 4 ДЗ, кот уменьшает кол-во еды в тарелке
-        p.decreaseFood(appetite, hungryCats);
+    public void eat(Plate p) {//пункт 4 ДЗ, кот уменьшает кол-во еды в тарелке
+        p.decreaseFood(appetite);
     }
 
 }

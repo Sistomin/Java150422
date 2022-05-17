@@ -22,11 +22,11 @@ public class Main {
         hungryCats[3] = new Cat("Мурка", 15, false);
 
 
-        Plate plate = new Plate(100);//вызов класса и предали параметр 100, наполнили тарелку едой
+        Plate plate = new Plate(30);//вызов класса и предали параметр = 30, наполнили тарелку едой
         plate.info();//сколько еды в начале
         for (int i = 0; i < hungryCats.length; i++) {//цикл, бежим по котам и кормим
             if (hungryCats[i].fullCat == false && hungryCats[i].getAppetite() < plate.getFood()){//если кот голоден && зачение аппетита кота меньше кол-ва еды в тарелке
-                hungryCats[i].eat(plate, hungryCats);//просим поесть кота, отнять из тарелки значение равное аппетиту кота
+                hungryCats[i].eat(plate);//просим поесть кота, отнять из тарелки значение равное аппетиту кота
                 hungryCats[i].fullCat = true;//переменной (boolean) fullCat присваевем значение true, то есть кот сыт
                 System.out.println("Котик " + hungryCats[i].getName() + " покушал " + hungryCats[i].getAppetite() + " еды.");
                 plate.info();//кол-во еды которое осталось в тарелке после "i"-ого кота
