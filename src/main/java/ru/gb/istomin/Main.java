@@ -12,41 +12,36 @@ package ru.gb.istomin;
 import java.util.Scanner;
 
 public class Main {
-    public static Scanner sc = new Scanner(System.in);
+    public static Scanner sc = new Scanner(System.in);//объявили сканер
     public static void main(String[] args) {
-        int action;
-        Cat[] hungryCats = new Cat[4];
-        hungryCats[0] = new Cat("Шкода", 25, false);
+        int action;//переменная кол-ва еды при добавлении с консоли
+        Cat[] hungryCats = new Cat[4];//массив котов (пункт 4 ДЗ - создание массива)
+        hungryCats[0] = new Cat("Шкода", 25, false);//b параметр голоден или нет (false = голодный)
         hungryCats[1] = new Cat("Басик", 30, false);
         hungryCats[2] = new Cat("Васька", 35, false);
         hungryCats[3] = new Cat("Мурка", 15, false);
 
 
-        Plate plate = new Plate(50);
-        plate.info();
-        for (int i = 0; i < hungryCats.length; i++) {
-            if (hungryCats[i].fullCat == false && hungryCats[i].getAppetite() < plate.getFood()){
-                hungryCats[i].eat(plate, hungryCats);
-                hungryCats[i].fullCat = true;
+        Plate plate = new Plate(100);//вызов класса и предали параметр 100, наполнили тарелку едой
+        plate.info();//сколько еды в начале
+        for (int i = 0; i < hungryCats.length; i++) {//цикл, бежим по котам и кормим
+            if (hungryCats[i].fullCat == false && hungryCats[i].getAppetite() < plate.getFood()){//если кот голоден && зачение аппетита кота меньше кол-ва еды в тарелке
+                hungryCats[i].eat(plate, hungryCats);//просим поесть кота, отнять из тарелки значение равное аппетиту кота
+                hungryCats[i].fullCat = true;//переменной (boolean) fullCat присваевем значение true, то есть кот сыт
                 System.out.println("Котик " + hungryCats[i].getName() + " покушал " + hungryCats[i].getAppetite() + " еды.");
-                plate.info();
-                System.out.println("Сытость кота " + hungryCats[i].getName() + " = " + hungryCats[i].fullCat);
+                plate.info();//кол-во еды которое осталось в тарелке после "i"-ого кота
+                System.out.println("Сытость кота " + hungryCats[i].getName() + " = " + hungryCats[i].fullCat);//выводим информацию о том что кот сыт
 
-            } else {
+            } else {//иначе случай когда аппетит кота больше кол-ва еды в тарелке (так же здесь реализуется пункт 1 ДЗ)
                 System.out.println("Котик " + hungryCats[i].getName() + " не поел!");
-                System.out.println("Сытость кота = " + hungryCats[i].fullCat);
-                System.out.println("Сколько корма добавить в тарелку?");
-                action = sc.nextInt();
-                plate.addFood(action);
-                plate.info();
+                System.out.println("Сытость кота = " + hungryCats[i].fullCat);//ввыод информации о том что кот голоден
+                System.out.println("Сколько корма добавить в тарелку?");//если не хватает еды в тарелке, выводим в консоль
+                action = sc.nextInt();//сканируем введеное кол-во еды с клавиатуры
+                plate.addFood(action);//добавляем в тарелку еду
+                plate.info();//вывод в консоль кол-ва еды в тарелке после добавления
             }
         }
-        plate.info();
-        //System.out.println("Сколько корма добавить в тарелку?");
-        //action = sc.nextInt();
-        //plate.addFood(action);
-        //plate.info();
-
+        plate.info();//кол-во оставшейся еды полсе того как коты покушали
     }
 }
 

@@ -1,40 +1,25 @@
 package ru.gb.istomin;
 
-public class Cat {
-    //public boolean fullness;
-    private String name;
-    private int appetite;
-    public boolean fullCat;
-    public Cat(String name, int appetite, boolean b){
+public class Cat {  //класс кот
+    private String name; //объявили имя кота
+    private int appetite;  //объявили аппетит кота
+    public boolean fullCat;  //перевенная типа boolean, сытость кота
+    public Cat(String name, int appetite, boolean b){//конструктор класса
         this.name = name;
         this.appetite = appetite;
         this.fullCat = fullCat;
     }
 
-    public String getName() {
+    public String getName() {   //гетр имени кота
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAppetite() {
+    public int getAppetite() { //гетор аппетита
         return appetite;
     }
 
-    public boolean isFullCat() {
-        return fullCat;
-    }
-
-    public void setFullCat(boolean fullCat) {
-        this.fullCat = fullCat;
-    }
-
-    public void eat(Plate p, Cat[] hungryCats) {
+    public void eat(Plate p, Cat[] hungryCats) {//пункт 4 ДЗ, кот уменьшает кол-во еды в тарелке
         p.decreaseFood(appetite, hungryCats);
     }
-    public void eat(){
 
-    }
 }
