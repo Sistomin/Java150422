@@ -10,64 +10,58 @@ package ru.gb.istomin;
 //        4. * У препятствий есть длина (для дорожки) или высота (для стены), а участников ограничения
 //        на бег и прыжки. Если участник не смог пройти одно из препятствий, то дальше по списку он
 //        препятствий не идет.
+
+//1. Разобраться с имеющимся кодом;
+//2. Добавить класс Team, который будет содержать: название команды, массив из 4-х участников
+// (т.е. в конструкторе можно сразу всех участников указывать), метод для вывода информации
+// о членах команды прошедших дистанцию, метод вывода информации обо всех членах команды.
+//3. Добавить класс Course (полоса препятствий), в котором будут находиться: массив препятствий,
+// метод который будет просить команду пройти всю полосу;
+
+//То есть в итоге должно быть:
+//public static void main(String[] args) {
+//Course c = new Course(...); // Создаем полосу препятствий
+//Team team = new Team(...); // Создаем команду
+//c.doIt(team); // Просим команду пройти полосу
+//team.showResults(); // Показываем результаты
+//}
 public class Main {
     public static void main(String[] args) {
-        Cat cat1 = new Cat("Васька", 50, 7);
-        Human human1 = new Human("Василий", 150, 2);
-        Robot robot1 = new Robot("Владлен", 500, 50);
-        Cat cat2 = new Cat("Шкода", 25, 5);
-        Human human2 = new Human("Иван", 100, 1);
-        Robot robot2 = new Robot("Джон", 300, 30);
 
-        Play[] plays = {cat1, cat2, robot1, robot2, human1, human2};
+        Play[] plays = {
+                new Cat("Васька", 50, 7),
+                new Human("Василий", 150, 2),
+                new Robot("SuperJet", 500, 50),
+                new Cat("Шкода", 25, 5),
+                new Human("Иван", 100, 1),
+                new Robot("OldR30", 300, 30)
+        };
 
-        for (Play play : plays) {
-            play.run();
-            play.jump();
+
+        Trial[] trials = {
+                new Road(50),
+                new Wall(2),
+                new Road(200),
+                new Wall(5)
+        };
+        for (Trial trial : trials) {
+            for (Play play : plays) {
+                trial.overcome(play);
+            }
+            
         }
-
-        Road r1 = new Road(50);
-        Road r2 = new Road(200);
-        Wall w1 = new Wall(2);
-        Wall w2 = new Wall(5);
-
-        Ttrial[] trials = {r1, r2, w1, w2};
-
-
-
-
-
-
-    }
-
-    public void ch (){
-        Cat cat1 = new Cat("Васька", 50, 7);
-        Human human1 = new Human("Василий", 150, 2);
-        Robot robot1 = new Robot("Владлен", 500, 50);
-        Cat cat2 = new Cat("Шкода", 25, 5);
-        Human human2 = new Human("Иван", 100, 1);
-        Robot robot2 = new Robot("Джон", 300, 30);
-
-        Play[] plays = {cat1, cat2, robot1, robot2, human1, human2};
-
+        System.out.println("*************** Все испытания прошли ****************");
         for (Play play : plays) {
-            play.run();
-            play.jump();
-        }
-
-        Road r1 = new Road(50);
-        Road r2 = new Road(200);
-        Wall w1 = new Wall(2);
-        Wall w2 = new Wall(5);
-
-        Ttrial[] trials = {r1, r2, w1, w2};
-        for (Play play : plays){
-            play.run();
-            play.jump();
-            for (Ttrial ttrial : trials){
-                //if ()
-
+            if (play.isPlay()){
+                System.out.println(play);
             }
         }
+        System.out.println("Вторая часть задания");
+        Team.infoTeam();
+        Team.showResults();
+
+
     }
+
+
 }

@@ -1,42 +1,42 @@
 package ru.gb.istomin;
 
-public class Robot implements Play{
-    private String name;
-    private int maxRun;
-    private int maxJump;
-    private boolean success = true;
+public class Robot implements Play {
 
-    public Robot(String name, int maxRun, int maxJump) {
+    private final String name;
+    private final int runLimit;
+    private final int jumpLimit;
+    private boolean plays;
+
+    public Robot(String name, int runLimit, int jumpLimit) {
         this.name = name;
-        this.maxRun = maxRun;
-        this.maxJump = maxJump;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getMaxRun() {
-        return maxRun;
-    }
-
-    public int getMaxJump() {
-        return maxJump;
-    }
-
-    public boolean isSuccess() {
-        return success;
-    }
-
-
-    @Override
-    public void run() {
-        System.out.println("Робот по имени " + name + " может пробежать " + maxRun + "м.");
+        this.runLimit = runLimit;
+        this.jumpLimit = jumpLimit;
+        this.plays = true;
     }
 
     @Override
-    public void jump() {
-        System.out.println("Робот по имени " + name + " может прыгнуть на " + maxJump + "м.");
+    public boolean isPlay() {
+        return plays;
     }
+
+    @Override
+    public String toString() {
+        return "Robot по имени " + name;
+    }
+
+    @Override
+    public int getRunLimit() {
+        return runLimit;
+    }
+
+    @Override
+    public int getJumpLimit() {
+        return jumpLimit;
+    }
+
+    public void setPlay(boolean plays) {
+        this.plays = plays;
+    }
+
+
 }
-

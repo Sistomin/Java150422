@@ -1,44 +1,42 @@
 package ru.gb.istomin;
 
-public class Human implements Play{
-    private String name;
-    private int maxRun;
-    private int maxJump;
-    private boolean success = true;
+public class Human implements Play {
 
-    public Human(String name, int maxRun, int maxJump) {
+    private final String name;
+    private final int runLimit;
+    private final int jumpLimit;
+    private boolean plays;
+
+    public Human(String name, int runLimit, int jumpLimit) {
         this.name = name;
-        this.maxRun = maxRun;
-        this.maxJump = maxJump;
-
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getMaxRun() {
-        return maxRun;
-    }
-
-    public int getMaxJump() {
-        return maxJump;
-    }
-
-
-
-    public void setSuccess(boolean success) {
-        this.success = success;
+        this.runLimit = runLimit;
+        this.jumpLimit = jumpLimit;
+        this.plays = true;
     }
 
     @Override
-    public void run() {
-        System.out.println("Человек по имени " + name + " может пробежать " + maxRun + "м.");
+    public boolean isPlay() {
+        return plays;
     }
 
     @Override
-    public void jump() {
-        System.out.println("Человек по имени " + name + " может прыгнуть на " + maxJump + "м.");
+    public String toString() {
+        return "Человек по имени " + name;
     }
+
+    @Override
+    public int getRunLimit() {
+        return runLimit;
+    }
+
+    @Override
+    public int getJumpLimit() {
+        return jumpLimit;
+    }
+
+    public void setPlay(boolean plays) {
+        this.plays = plays;
+    }
+
+
 }
-

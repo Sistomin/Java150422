@@ -1,55 +1,40 @@
 package ru.gb.istomin;
 
-public class Cat implements Play{
-    private String name;
-    private int maxRun;
-    private int maxJump;
-    private boolean success = true;
+public class Cat implements Play {
 
-    public Cat(String name, int maxRun, int maxJump) {
+    private final String name;
+    private final int runLimit;
+    private final int jumpLimit;
+    private boolean plays;
+
+    public Cat(String name, int runLimit, int jumpLimit) {
         this.name = name;
-        this.maxRun = maxRun;
-        this.maxJump = maxJump;
-    }
-
-
-    public String getName() {
-        return name;
-    }
-
-    public int getMaxRun() {
-        return maxRun;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setMaxRun(int maxRun) {
-        this.maxRun = maxRun;
-    }
-
-    public void setMaxJump(int maxJump) {
-        this.maxJump = maxJump;
-    }
-
-    public int getMaxJump() {
-        return maxJump;
-    }
-
-
-
-    public void setSuccess(boolean success) {
-        this.success = success;
+        this.runLimit = runLimit;
+        this.jumpLimit = jumpLimit;
+        this.plays = true;
     }
 
     @Override
-    public void run(){
-        System.out.println("Кот по имени " + name + " может пробежать " + maxRun + "м.");
+    public boolean isPlay() {
+        return plays;
     }
+
     @Override
-    public void jump(){
-        System.out.println("Кот по имени " + name + " может прыгнуть на " + maxJump + "м.");
+    public String toString() {
+        return "Кот по имени " + name;
+    }
+
+    @Override
+    public int getRunLimit() {
+        return runLimit;
+    }
+
+    @Override
+    public int getJumpLimit() {
+        return jumpLimit;
+    }
+
+    public void setPlay(boolean plays) {
+        this.plays = plays;
     }
 }
-
