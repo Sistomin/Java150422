@@ -1,5 +1,19 @@
 package ru.gb.istomin;
-
+//Необходимо написать два метода, которые делают следующее:
+//1) Создают одномерный длинный массив, например:
+//static final int SIZE = 10_000_000;
+//static final int HALF = size / 2;
+//float[] arr = new float[size];
+//2) Заполняют этот массив единицами.
+//3) Засекают время выполнения: long a = System.currentTimeMillis().
+//4) Проходят по всему массиву и для каждой ячейки считают новое значение по формуле:
+//5) Проверяется время окончания метода System.currentTimeMillis().
+//6) В консоль выводится время работы: System.out.println(System.currentTimeMillis() - a).
+//
+//Для первого метода надо считать время только на цикл расчета:
+//
+//Для второго метода замеряете время разбивки массива на 2, просчета каждого из двух массивов и
+//склейки.
 public class Main {
     public static void main(String[] args) {
         long startAllTime = System.currentTimeMillis();//метка времени начало
