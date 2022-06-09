@@ -1,5 +1,6 @@
 package ru.gb.istomin;
 //Необходимо написать два метода, которые делают следующее:
+
 //1) Создают одномерный длинный массив, например:
 //static final int SIZE = 10_000_000;
 //static final int HALF = size / 2;
