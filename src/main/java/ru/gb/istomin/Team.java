@@ -1,7 +1,8 @@
 package ru.gb.istomin;
-
+//Добавить класс Team, который будет содержать: название команды, массив из 4-х участников (т.е. в конструкторе можно
+// сразу всех участников указывать), метод для вывода информации о членах команды прошедших дистанцию, метод вывода
+// информации обо всех членах команды.
 public class Team {
-
 
     private static String teamName = "SupperStars";
     private String playName;
@@ -29,7 +30,7 @@ public class Team {
     }
 
     public boolean isTeam() {
-        return isTeam;
+        return true;
     }
 
     public void setTeam(boolean team) {
@@ -37,29 +38,28 @@ public class Team {
     }
 
     static Team[] teams = { //массив команды
-            new Team("Влад", 150, 3),
-            new Team("Степан", 190, 3),
-            new Team("Кирилл", 250, 3),
-            new Team("Татьяна", 350, 3),
-            new Team("Шустрик", 1000, 10)
+            new Team("Кот Влад", 150, 2),
+            new Team("Человек Степан", 190, 3),
+            new Team("Человек Татьяна", 350, 3),
+            new Team("Робот Шустрик", 1000, 10)
     };
 
 
     static void infoTeam() {// вывод информации о комманде
         System.out.println("Название команды: " + teamName);
-        for (Team a : teams) {
-            System.out.print(a.getPlayName());
-            System.out.print(" Run limit = " + a.getRunLimit());
-            System.out.println(" Jump limit = " + a.getJumpLimit());
+        for (Team team : teams) {
+            System.out.print(team.getPlayName());
+            System.out.print(" Run limit = " + team.getRunLimit());
+            System.out.println(" Jump limit = " + team.getJumpLimit());
         }
     }
 
-    static void showResults() {
-        for (Team a : teams) {
-            if (a.isTeam) {
-                System.out.println(a.getPlayName() + " успешно прошел дистанцию ");
+    static void showResults() {//метод о прошедших испытание
+        for (Team team : teams) {
+            if (team.isTeam) {
+                System.out.println(team.getPlayName() + " успешно прошел дистанцию ");
             } else {
-                System.out.println(a.getPlayName() + " не прошел дистанцию ");
+                System.out.println(team.getPlayName() + " не прошел дистанцию ");
             }
         }
 

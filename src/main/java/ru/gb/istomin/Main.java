@@ -56,10 +56,11 @@ public class Main {
                 System.out.println(play);
             }
         }
+        System.out.println("**********************");
         System.out.println("Вторая часть задания");
+        System.out.println("**********************");
         Team.infoTeam();
         Team.showResults();
-
 
     }
 
