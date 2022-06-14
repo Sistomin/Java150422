@@ -26,7 +26,7 @@ package ru.gb.istomin;
 //team.showResults(); // Показываем результаты
 //}
 public class Main {
-    public static void main(String[] args) {
+    public void main(String[] args) {
 
         Play[] plays = {
                 new Cat("Васька", 50, 7),
@@ -61,7 +61,6 @@ public class Main {
         System.out.println("**********************");
         Team.infoTeam();
         Team.showResults();
-
     }
 
 

@@ -3,9 +3,9 @@ package ru.gb.istomin;
 //Добавить класс Course (полоса препятствий), в котором будут находиться: массив препятствий,
 // метод который будет просить команду пройти всю полосу;
 public class Course {
-    private static Team team;
-    private static int length;
-    private static int height;
+    private Team team;
+    private int length;
+    private int height;
 
     public Course(int length, int height) {
         this.length = length;
@@ -25,7 +25,7 @@ public class Course {
             new Course(500, 5)
     };
     // Проходим полосу препятствий
-    public static void doIt(){
+    public void doIt(){
 
             for (Course c: c) {
                     if (team.getRunLimit() >= length && team.getJumpLimit() >= height){

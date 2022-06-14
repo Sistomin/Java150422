@@ -4,7 +4,7 @@ package ru.gb.istomin;
 // информации обо всех членах команды.
 public class Team {
 
-    private static String teamName = "SupperStars";
+    private String teamName = "SupperStars";
     private String playName;
     private int runLimit;
     private int jumpLimit;
@@ -37,7 +37,7 @@ public class Team {
         isTeam = team;
     }
 
-    static Team[] teams = { //массив команды
+    Team[] teams = { //массив команды
             new Team("Кот Влад", 150, 2),
             new Team("Человек Степан", 190, 3),
             new Team("Человек Татьяна", 350, 3),
@@ -45,7 +45,7 @@ public class Team {
     };
 
 
-    static void infoTeam() {// вывод информации о комманде
+    void infoTeam() {// вывод информации о комманде
         System.out.println("Название команды: " + teamName);
         for (Team team : teams) {
             System.out.print(team.getPlayName());
@@ -54,7 +54,7 @@ public class Team {
         }
     }
 
-    static void showResults() {//метод о прошедших испытание
+    void showResults() {//метод о прошедших испытание
         for (Team team : teams) {
             if (team.isTeam) {
                 System.out.println(team.getPlayName() + " успешно прошел дистанцию ");
