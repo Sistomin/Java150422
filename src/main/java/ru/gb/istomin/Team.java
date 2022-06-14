@@ -4,6 +4,7 @@ package ru.gb.istomin;
 // информации обо всех членах команды.
 public class Team {
 
+
     private String teamName = "SupperStars";
     private String playName;
     private int runLimit;
